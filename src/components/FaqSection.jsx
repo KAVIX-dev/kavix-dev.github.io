@@ -24,8 +24,8 @@ export default function FaqSection() {
           </div>
 
           <h2 className="text-3xl leading-tight font-extrabold tracking-tight text-slate-50 sm:text-4xl">
-            سوالاتی که{' '}
-            <span className="font-light text-slate-400">معمولاً می‌پرسند.</span>
+            پاسخ به{' '}
+            <span className="font-light text-slate-400">پرسش‌های پرتکرار</span>
           </h2>
         </motion.div>
 

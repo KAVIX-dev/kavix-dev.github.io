@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { ArrowLeft, ArrowUpLeft, Check, Copy, Mail, Phone, Send } from 'lucide-react'
+import { ArrowUpLeft, Check, Copy, Mail, Phone, Send } from 'lucide-react'
 import { profile } from '../data/portfolio'
 
 const ease = [0.22, 1, 0.36, 1]
@@ -18,15 +18,27 @@ export default function ContactSection({ onToast }) {
     setTimeout(() => setCopiedKey(''), 2000)
   }
 
-  const handleSubmit = (e) => {
+  const buildBriefText = () =>
+    `سلام وقت بخیر، از طریق پورتفولیو KAVIX پیام می‌دهم.\nنام: ${name.trim()}\nراه ارتباطی: ${contact.trim()}\nشرح پروژه:\n${message.trim()}`
+
+  const handleTelegramSubmit = (e) => {
     e.preventDefault()
-    const text = `سلام حمیدرضا، من ${name.trim()} هستم.\nراه ارتباطی: ${contact.trim()}\nتوضیحات پروژه:\n${message.trim()}`
     window.open(
-      `${profile.telegramUrl}?text=${encodeURIComponent(text)}`,
+      `${profile.telegramUrl}?text=${encodeURIComponent(buildBriefText())}`,
       '_blank',
       'noopener,noreferrer'
     )
-    onToast('پیام برای ارسال در تلگرام آماده شد')
+    onToast('متن پیام آماده و در تلگرام باز شد')
+  }
+
+  const handleEmailFallback = () => {
+    if (!name.trim() || !message.trim()) {
+      onToast('لطفاً ابتدا نام و شرح پروژه را وارد کنید')
+      return
+    }
+    const subject = encodeURIComponent(`درخواست مشاوره پروژه وب — ${name.trim()}`)
+    const body = encodeURIComponent(buildBriefText())
+    window.location.href = `mailto:${profile.email}?subject=${subject}&body=${body}`
   }
 
   return (
@@ -43,17 +55,17 @@ export default function ContactSection({ onToast }) {
           <div className="lg:col-span-5">
             <div className="mb-3.5 flex items-center gap-2.5 text-xs tracking-wider text-slate-400">
               <span className="h-px w-5 bg-[#00c3ff]" />
-              <span>۰۵ — تماس و شروع همکاری</span>
+              <span>۰۵ — تماس و مشاوره</span>
             </div>
 
             <h2 className="text-3xl leading-tight font-extrabold tracking-tight text-slate-50 sm:text-4xl">
-              بیایید پروژه بعدی را{' '}
-              <span className="font-light text-slate-400">متفاوت بسازیم.</span>
+              پروژه بعدی خود را{' '}
+              <span className="font-light text-slate-400">با اطمینان شروع کنید.</span>
             </h2>
 
             <p className="mt-4 text-[14.5px] leading-8 text-slate-400">
-              کافیست در چند خط کوتاه درباره ایده یا نیاز کسب‌وکارتان بگویید تا خیلی سریع
-              مشاوره و برآورد شفاف در اختیارتان بگذارم.
+              در چند خط کوتاه نیازها و اهداف کسب‌وکار خود را با ما در میان بگذارید تا در
+              کوتاه‌ترین زمان، مشاوره تخصصی و برآورد شفاف پروژه را برایتان آماده کنیم.
             </p>
 
             <div className="mt-8 flex flex-col gap-3">
@@ -112,7 +124,7 @@ export default function ContactSection({ onToast }) {
                     <Mail className="h-4 w-4" />
                   </span>
                   <div>
-                    <div className="text-[11px] text-slate-400">ایمیل</div>
+                    <div className="text-[11px] text-slate-400">ایمیل رسمی</div>
                     <div dir="ltr" className="text-right text-sm font-bold text-slate-100">
                       {profile.email}
                     </div>
@@ -134,13 +146,13 @@ export default function ContactSection({ onToast }) {
             </div>
           </div>
 
-          {/* Minimalist Underline Form (Samples #2 & #4) */}
+          {/* Minimalist Project Brief Form (Telegram + Email fallback) */}
           <form
-            onSubmit={handleSubmit}
+            onSubmit={handleTelegramSubmit}
             className="rounded-[26px] border border-white/[0.08] bg-[#090d16]/85 p-7 shadow-2xl backdrop-blur-md sm:p-9 lg:col-span-7"
           >
             <div className="mb-6">
-              <label className="mb-2 block text-xs text-slate-400">نام شما</label>
+              <label className="mb-2 block text-xs text-slate-400">نام و نام خانوادگی</label>
               <input
                 type="text"
                 required
@@ -167,29 +179,44 @@ export default function ContactSection({ onToast }) {
 
             <div className="mb-8">
               <label className="mb-2 block text-xs text-slate-400">
-                درباره پروژه یا نیاز خود بنویسید
+                شرح کوتاه پروژه و نیاز کسب‌وکار شما
               </label>
               <textarea
                 required
                 rows={3}
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
-                placeholder="نوع سایت (شرکتی، فروشگاهی، لندینگ...) و هدف اصلی شما..."
+                placeholder="نوع وب‌سایت (اختصاصی، وردپرس قالب اختصاصی، فروشگاهی، سئو...) و هدف اصلی شما..."
                 className="w-full resize-y border-b border-white/15 bg-transparent py-2.5 text-sm text-slate-100 placeholder-slate-600 outline-none transition-colors focus:border-[#00c3ff]"
               />
             </div>
 
-            <button
-              type="submit"
-              className="inline-flex w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-slate-50 px-6 py-3.5 text-sm font-bold text-[#03050a] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_30px_-6px_rgba(248,250,252,0.35)]"
-            >
-              <span>ارسال سریع پیام در تلگرام</span>
-              <ArrowLeft className="h-4 w-4" />
-            </button>
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <button
+                type="submit"
+                className="group relative inline-flex flex-1 cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-full bg-gradient-to-l from-[#00c3ff] via-[#1c7dff] to-[#0044ff] px-6 py-3.5 text-sm font-bold text-white shadow-[0_10px_28px_-8px_rgba(0,195,255,0.5)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_14px_34px_-6px_rgba(0,195,255,0.68)]"
+              >
+                <span
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent transition-transform duration-700 group-hover:translate-x-full"
+                />
+                <span className="relative">ارسال در تلگرام</span>
+                <Send className="relative h-3.5 w-3.5" />
+              </button>
+
+              <button
+                type="button"
+                onClick={handleEmailFallback}
+                className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-full border border-white/12 bg-white/[0.03] px-5 py-3.5 text-sm font-semibold text-slate-200 transition-all duration-200 hover:border-[#f6c453]/50 hover:text-[#f6c453]"
+              >
+                <Mail className="h-4 w-4" />
+                <span>ارسال با ایمیل</span>
+              </button>
+            </div>
           </form>
         </motion.div>
 
-        {/* Giant Editorial Sign-off (Sample #4) */}
+        {/* Editorial Sign-off tied back to Hero */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -197,9 +224,12 @@ export default function ContactSection({ onToast }) {
           transition={{ duration: 0.85, ease }}
           className="mt-24 border-t border-white/[0.08] pt-16 text-center"
         >
-          <h2 className="text-4xl leading-tight font-black tracking-tight text-slate-50 sm:text-5xl lg:text-6xl">
-            بیایید <span className="text-kavix-gold-gradient font-light">چیز ماندگاری</span>{' '}
-            بسازیم.
+          <p className="mb-3 text-xs font-medium tracking-[0.22em] text-slate-500 uppercase" dir="ltr">
+            KAVIX WEB STUDIO
+          </p>
+          <h2 className="text-3xl leading-tight font-black tracking-tight text-slate-50 sm:text-5xl lg:text-[3.4rem]">
+            ایده‌ی شما،{' '}
+            <span className="text-kavix-gold-gradient font-light">اجرای ماندگار ما.</span>
           </h2>
         </motion.div>
       </div>
