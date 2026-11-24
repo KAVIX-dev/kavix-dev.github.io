@@ -30,8 +30,8 @@ export default function ProjectsSection({ onSelectProject }) {
 
           <div>
             <h2 className="text-3xl leading-tight font-extrabold tracking-tight text-slate-50 sm:text-4xl">
-              پروژه‌های اجرا شده{' '}
-              <span className="font-light text-slate-400">با دقت و هدف.</span>
+              گلچین پروژه‌های{' '}
+              <span className="font-light text-slate-400">اجرا شده</span>
             </h2>
             <p className="mt-3.5 max-w-[540px] text-[15px] leading-8 text-slate-400">
               روی هر پروژه کلیک کنید تا جزئیات کامل (چالش، راه‌حل و دستاورد) و لینک نسخه

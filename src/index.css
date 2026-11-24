@@ -28,6 +28,40 @@
     overflow-x: hidden;
     background-color: #03050a;
   }
+
+  /* Sleek dark custom scrollbar for Windows/Chrome/Edge/Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(148, 163, 184, 0.22) transparent;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(148, 163, 184, 0.22);
+    border-radius: 9999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 195, 255, 0.45);
+  }
+}
+
+/* Hide scrollbar visually inside modals while keeping smooth wheel/touch scroll */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 
 /* Smooth ambient aurora drift (Samples #3 & #5) */
