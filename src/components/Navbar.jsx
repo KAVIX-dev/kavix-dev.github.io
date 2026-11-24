@@ -33,16 +33,30 @@ export default function Navbar() {
         transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
         className="mx-auto flex max-w-[1160px] items-center justify-between px-6"
       >
-        {/* 1. Open floating brand logo (no outer bar) */}
-        <a href="#" className="flex items-center" aria-label="KAVIX">
-          <img
-            src="/logo-hor.svg"
-            alt="KAVIX"
-            className="h-8 w-auto object-contain transition-transform duration-300 hover:scale-[1.03] sm:h-9"
-          />
-        </a>
+        {/* 1. Right side (RTL): Styled CTA button + mobile toggle */}
+        <div className="flex items-center gap-2.5">
+          <button
+            type="button"
+            onClick={() => setMobileOpen((prev) => !prev)}
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-[#0c1324]/70 text-slate-200 backdrop-blur-md md:hidden"
+            aria-label="منو"
+          >
+            {mobileOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+          </button>
 
-        {/* 2. Single sleek floating glass pill in the center (Sample #4 style) */}
+          <a
+            href="#contact"
+            className="group relative inline-flex rounded-full bg-gradient-to-l from-[#00c3ff]/80 via-[#3b82f6]/65 to-[#f6c453]/80 p-[1px] shadow-[0_0_26px_-6px_rgba(0,195,255,0.45)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_6px_30px_-4px_rgba(0,195,255,0.55),0_0_24px_-6px_rgba(246,196,83,0.4)]"
+          >
+            <span className="relative inline-flex items-center gap-2 rounded-full bg-[#070d1a]/90 px-5 py-2 text-[13px] font-bold text-slate-50 backdrop-blur-xl transition-colors duration-300 group-hover:bg-[#0a1326]/75">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#f6c453] shadow-[0_0_8px_#f6c453]" />
+              <span>شروع همکاری</span>
+              <ArrowUpLeft className="h-3.5 w-3.5 text-[#00c3ff] transition-transform duration-300 group-hover:-translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-[#f6c453]" />
+            </span>
+          </a>
+        </div>
+
+        {/* 2. Center: Single sleek floating glass pill */}
         <div className="hidden items-center gap-1 rounded-full border border-white/[0.08] bg-[#0c1324]/60 px-2 py-1.5 shadow-[0_10px_32px_-12px_rgba(0,0,0,0.75)] backdrop-blur-xl md:flex">
           {navItems.map((item) => (
             <a
@@ -55,25 +69,14 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* 3. Crisp floating white CTA pill + mobile toggle */}
-        <div className="flex items-center gap-2.5">
-          <a
-            href="#contact"
-            className="inline-flex items-center gap-1.5 rounded-full bg-slate-50 px-5 py-2.5 text-[13px] font-bold text-[#03050a] shadow-[0_8px_24px_-8px_rgba(248,250,252,0.28)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-white hover:shadow-[0_12px_30px_-6px_rgba(248,250,252,0.42)]"
-          >
-            <span>شروع همکاری</span>
-            <ArrowUpLeft className="h-3.5 w-3.5" />
-          </a>
-
-          <button
-            type="button"
-            onClick={() => setMobileOpen((prev) => !prev)}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-[#0c1324]/70 text-slate-200 backdrop-blur-md md:hidden"
-            aria-label="منو"
-          >
-            {mobileOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
-          </button>
-        </div>
+        {/* 3. Left side (RTL): Larger borderless KAVIX logo */}
+        <a href="#" className="flex items-center" aria-label="KAVIX">
+          <img
+            src="/logo-hor.svg"
+            alt="KAVIX"
+            className="h-10 w-auto object-contain drop-shadow-[0_0_16px_rgba(0,195,255,0.18)] transition-transform duration-300 hover:scale-[1.04] sm:h-12"
+          />
+        </a>
       </motion.nav>
 
       {/* Mobile slide-down menu */}
