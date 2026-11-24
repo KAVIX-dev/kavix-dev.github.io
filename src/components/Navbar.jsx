@@ -49,7 +49,6 @@ export default function Navbar() {
             className="group relative inline-flex rounded-full bg-gradient-to-l from-[#00c3ff]/80 via-[#3b82f6]/65 to-[#f6c453]/80 p-[1px] shadow-[0_0_26px_-6px_rgba(0,195,255,0.45)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_6px_30px_-4px_rgba(0,195,255,0.55),0_0_24px_-6px_rgba(246,196,83,0.4)]"
           >
             <span className="relative inline-flex items-center gap-2 rounded-full bg-[#070d1a]/90 px-5 py-2 text-[13px] font-bold text-slate-50 backdrop-blur-xl transition-colors duration-300 group-hover:bg-[#0a1326]/75">
-              <span className="h-1.5 w-1.5 rounded-full bg-[#f6c453] shadow-[0_0_8px_#f6c453]" />
               <span>شروع همکاری</span>
               <ArrowUpLeft className="h-3.5 w-3.5 text-[#00c3ff] transition-transform duration-300 group-hover:-translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-[#f6c453]" />
             </span>

@@ -16,9 +16,9 @@ export const profile = {
 };
 
 export const heroMetrics = [
-  { value: '۶۰', suffix: 'fps', label: 'انیمیشن‌های نرم و تعاملی' },
-  { value: '۱۰۰', suffix: '%', label: 'واکنش‌گرا در تمام نمایشگرها' },
-  { value: 'اختصاصی', suffix: '+', label: 'طراحی مطابق با هویت هر برند' },
+  { value: '06', suffix: '', label: 'سال تجربه' },
+  { value: '30', suffix: '+', label: 'محصول نرم‌افزاری' },
+  { value: '100', suffix: '٪', label: 'طراحی اختصاصی هر برند' },
 ];
 
 export const projects = [

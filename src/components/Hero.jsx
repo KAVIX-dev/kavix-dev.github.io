@@ -35,7 +35,7 @@ export default function Hero() {
 
   return (
     <header className="relative flex min-h-screen flex-col justify-center overflow-hidden pt-32 pb-24">
-      {/* Luminous horizon arc at bottom (Sample #6) */}
+      {/* Luminous horizon arc at bottom */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute -bottom-[350px] left-1/2 z-[1] h-[470px] w-[1450px] -translate-x-1/2 rounded-[50%] border-t border-[#00c3ff]/35 shadow-[0_-24px_90px_rgba(0,195,255,0.16)]"
@@ -55,23 +55,20 @@ export default function Hero() {
             className="mb-6 inline-flex items-center gap-2.5 text-xs font-semibold tracking-wide text-slate-300"
           >
             <span className="h-2 w-2 animate-pulse rounded-full bg-[#f6c453] shadow-[0_0_12px_#f6c453]" />
-            <span>
-              {profile.owner} • استودیو طراحی و توسعه وب {profile.brand}
-            </span>
+            <span>استودیو طراحی و توسعه وب {profile.brand}</span>
           </motion.div>
 
           <motion.h1
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.08, ease }}
-            className="mb-6 text-4xl leading-[1.28] font-black tracking-tight text-slate-50 sm:text-5xl lg:text-[3.65rem]"
+            className="mb-6 text-4xl leading-[1.32] font-black tracking-tight text-slate-50 sm:text-5xl lg:text-[3.55rem]"
           >
-            طراحی تجربه‌های وب
+            از ایده تا اجرا
             <br />
-            <span className="font-light text-slate-300">که دقیقاً </span>
-            <span className="text-kavix-blue-gradient">بی‌نقص و روان</span>
+            <span className="text-kavix-blue-gradient">محصول وب مدرن؛</span>
             <br />
-            عمل می‌کنند.
+            <span className="font-light text-slate-200">خلاقانه، کارآمد و ماندگار.</span>
           </motion.h1>
 
           <motion.p
@@ -91,10 +88,14 @@ export default function Hero() {
           >
             <a
               href="#work"
-              className="inline-flex items-center gap-2 rounded-full bg-slate-50 px-7 py-3.5 text-sm font-bold text-[#03050a] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_14px_32px_-8px_rgba(248,250,252,0.35)]"
+              className="group relative inline-flex items-center gap-2.5 overflow-hidden rounded-full bg-gradient-to-l from-[#00c3ff] via-[#1c7dff] to-[#0044ff] px-7 py-3.5 text-sm font-bold text-white shadow-[0_10px_32px_-8px_rgba(0,195,255,0.55),inset_0_1px_1px_rgba(255,255,255,0.35)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_14px_38px_-6px_rgba(0,195,255,0.7)]"
             >
-              <span>مشاهده نمونه‌کارها</span>
-              <ArrowDown className="h-4 w-4" />
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent transition-transform duration-700 group-hover:translate-x-full"
+              />
+              <span className="relative">مشاهده نمونه‌کارها</span>
+              <ArrowDown className="relative h-4 w-4 transition-transform duration-300 group-hover:translate-y-0.5" />
             </a>
 
             <a
@@ -117,9 +118,14 @@ export default function Hero() {
           >
             {heroMetrics.map((m) => (
               <div key={m.label}>
-                <div className="text-2xl font-extrabold tracking-tight text-slate-50">
+                <div
+                  dir="ltr"
+                  className="text-right text-2xl font-extrabold tracking-tight text-slate-50 sm:text-[1.7rem]"
+                >
                   {m.value}
-                  <span className="text-kavix-gold-gradient mr-0.5">{m.suffix}</span>
+                  {m.suffix && (
+                    <span className="text-kavix-gold-gradient ml-0.5">{m.suffix}</span>
+                  )}
                 </div>
                 <div className="mt-1 text-xs text-slate-400">{m.label}</div>
               </div>
@@ -127,7 +133,7 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* Left 3D Interactive KAVIX Emblem Stage (Sample #1 inspired) */}
+        {/* Left 3D Interactive KAVIX Emblem Stage */}
         <motion.div
           initial={{ opacity: 0, scale: 0.92 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -142,9 +148,7 @@ export default function Hero() {
             style={{ rotateX, rotateY, transformStyle: 'preserve-3d' }}
             className="group relative flex h-[350px] w-[300px] flex-col items-center justify-center rounded-[30px] border border-white/[0.09] bg-gradient-to-b from-[#0d1322]/85 to-[#050914]/95 p-7 shadow-[0_32px_80px_-20px_rgba(0,0,0,0.85),0_0_85px_-24px_rgba(0,195,255,0.28)] transition-colors duration-300 hover:border-[#00c3ff]/35 sm:w-[325px]"
           >
-            {/* Subtle engineering blueprint dashed frame */}
             <div className="pointer-events-none absolute inset-4 rounded-[22px] border border-dashed border-white/[0.08]" />
-            {/* Soft warm-gold & cyan dual backlight */}
             <div
               aria-hidden="true"
               className="pointer-events-none absolute top-14 h-40 w-40 rounded-full opacity-35 blur-3xl transition-opacity duration-500 group-hover:opacity-55"
