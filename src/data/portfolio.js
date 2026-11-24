@@ -16,7 +16,7 @@ export const profile = {
 };
 
 export const heroMetrics = [
-  { value: '06', suffix: '', label: 'سال تجربه' },
+  { value: '04', suffix: '+', label: 'سال تجربه' },
   { value: '30', suffix: '+', label: 'محصول نرم‌افزاری' },
   { value: '100', suffix: '٪', label: 'طراحی اختصاصی هر برند' },
 ];
