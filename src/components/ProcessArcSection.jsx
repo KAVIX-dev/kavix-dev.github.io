@@ -40,10 +40,10 @@ export default function ProcessArcSection() {
             viewBox="0 0 1000 84"
             fill="none"
             preserveAspectRatio="none"
-            className="pointer-events-none absolute top-5 left-[6%] hidden h-20 w-[88%] lg:block"
+            className="pointer-events-none absolute top-9 left-[12.5%] hidden h-16 w-[75%] lg:block"
           >
             <path
-              d="M 20 14 Q 500 94 980 14"
+              d="M 0 12 Q 500 84 1000 12"
               stroke="rgba(0, 195, 255, 0.30)"
               strokeWidth="1.5"
               strokeDasharray="5 7"
