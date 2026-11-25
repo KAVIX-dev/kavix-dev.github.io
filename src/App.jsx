@@ -21,6 +21,16 @@ export default function App() {
       setToastMsg((prev) => (prev === msg ? '' : prev))
     }, 2400)
   }
+  
+  useEffect(() => {
+  const tg = window.Telegram?.WebApp
+  if (tg) {
+    tg.ready()
+    tg.expand()
+    tg.setHeaderColor('#03050a')
+    tg.setBackgroundColor('#03050a')
+  }
+}, [])
 
   return (
     <div className="relative min-h-screen bg-[#03050a] text-slate-50">

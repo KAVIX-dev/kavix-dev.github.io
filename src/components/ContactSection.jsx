@@ -1,3 +1,4 @@
+import { openTelegramInMiniApp } from '../telegram'
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { ArrowUpLeft, Check, Copy, Mail, Phone, Send } from 'lucide-react'
@@ -23,12 +24,12 @@ export default function ContactSection({ onToast }) {
 
   const handleTelegramSubmit = (e) => {
     e.preventDefault()
-    window.open(
-      `${profile.telegramUrl}?text=${encodeURIComponent(buildBriefText())}`,
-      '_blank',
-      'noopener,noreferrer'
-    )
-    onToast('متن پیام آماده و در تلگرام باز شد')
+
+    const url = `${profile.telegramUrl}?text=${encodeURIComponent(buildBriefText())}`
+
+    if (!openTelegramInMiniApp(url)) {
+      window.open(url, '_blank', 'noopener,noreferrer')
+    }
   }
 
   const handleEmailFallback = () => {

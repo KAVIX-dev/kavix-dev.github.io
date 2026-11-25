@@ -1,3 +1,4 @@
+import { openTelegramInMiniApp } from '../telegram'
 import { useRef } from 'react'
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
 import { ArrowDown, CheckCircle2, Gauge, Lock, Send, Smartphone, Terminal } from 'lucide-react'
@@ -100,6 +101,9 @@ export default function Hero() {
 
             <a
               href={profile.telegramUrl}
+              onClick={(e) => {
+                if (openTelegramInMiniApp(profile.telegramUrl)) e.preventDefault()
+              }}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.03] px-7 py-3.5 text-sm font-semibold text-slate-100 transition-all duration-300 hover:-translate-y-0.5 hover:border-[#00c3ff]/50 hover:bg-[#00c3ff]/10"
