@@ -103,7 +103,7 @@ export default function ProjectModal({ project, onClose }) {
                   <span
                     key={t}
                     dir="ltr"
-                    className="rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1 text-[11px] font-medium text-slate-300"
+                    className="interactive-tag rounded-full border border-white/[0.12] bg-white/[0.04] px-3 py-1 text-[11px] font-medium text-slate-300"
                   >
                     {t}
                   </span>

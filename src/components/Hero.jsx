@@ -117,10 +117,10 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.9, delay: 0.36 }}
-            className="glass-panel grid grid-cols-3 gap-3 rounded-2xl p-4 sm:gap-6 sm:p-5"
+            className="glass-panel interactive-glass grid grid-cols-3 gap-2 rounded-2xl p-3 sm:gap-4 sm:p-4"
           >
             {heroMetrics.map((m) => (
-              <div key={m.label}>
+              <div key={m.label} className="interactive-metric rounded-xl p-2">
                 <div
                   dir="ltr"
                   className="text-right text-2xl font-extrabold tracking-tight text-slate-50 sm:text-[1.7rem]"

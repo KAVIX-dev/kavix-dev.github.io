@@ -130,9 +130,9 @@
 .site-canvas {
   background-color: #0b1220;
   background-image:
-    radial-gradient(ellipse 75% 420px at 5% 20%, rgba(69, 113, 143, .16), transparent 75%),
-    radial-gradient(ellipse 75% 500px at 95% 43%, rgba(63, 93, 134, .14), transparent 75%),
-    radial-gradient(ellipse 80% 460px at 12% 72%, rgba(80, 110, 122, .12), transparent 75%),
+    radial-gradient(ellipse 75% 520px at 5% 18%, rgba(54, 131, 154, .28), transparent 75%),
+    radial-gradient(ellipse 75% 560px at 95% 43%, rgba(74, 95, 163, .27), transparent 75%),
+    radial-gradient(ellipse 80% 520px at 12% 72%, rgba(107, 125, 113, .20), transparent 75%),
     linear-gradient(180deg, #0e1c2d 0%, #0b1220 32%, #101b2a 62%, #0b1220 100%);
 }
 .process-card {
@@ -141,9 +141,9 @@
 @media (hover: hover) {
   .process-card:hover {
     translate: 0 -5px;
-    border-color: rgba(150, 211, 225, .48);
+    border-color: rgba(246, 196, 83, .75);
     background: linear-gradient(145deg, rgba(54, 77, 100, .94), rgba(25, 43, 62, .95));
-    box-shadow: 0 22px 45px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.1);
+    box-shadow: 0 0 0 1px rgba(246,196,83,.16), 0 22px 45px rgba(0,0,0,.25), 0 0 25px rgba(246,196,83,.10), inset 0 1px 0 rgba(255,255,255,.1);
   }
 }
 .process-connector::after {
@@ -170,4 +170,28 @@
 @media (prefers-reduced-motion: reduce) {
   .process-card { transition: none; }
   .process-card:hover { translate: none; }
+}
+
+@media (hover: hover) {
+  .interactive-glass, .interactive-tag, .interactive-metric {
+    transition: border-color .25s ease, background-color .25s ease, box-shadow .25s ease, translate .25s ease, color .25s ease;
+  }
+  .interactive-glass:hover {
+    border-color: rgba(246,196,83,.55);
+    box-shadow: 0 16px 40px rgba(0,0,0,.2), 0 0 24px rgba(246,196,83,.10);
+  }
+  .interactive-metric:hover {
+    background: rgba(246,196,83,.10);
+    translate: 0 -3px;
+  }
+  .interactive-tag:hover {
+    border-color: rgba(246,196,83,.65);
+    background: rgba(246,196,83,.12);
+    color: #ffdf9e;
+    translate: 0 -2px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .interactive-glass, .interactive-tag, .interactive-metric { transition: none; }
+  .interactive-metric:hover, .interactive-tag:hover { translate: none; }
 }
