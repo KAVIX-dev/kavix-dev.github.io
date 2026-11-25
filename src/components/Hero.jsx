@@ -38,10 +38,10 @@ export default function Hero() {
       {/* Luminous horizon arc at bottom */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -bottom-[350px] left-1/2 z-[1] h-[470px] w-[1450px] -translate-x-1/2 rounded-[50%] border-t border-[#8ab4ce]/15 shadow-[0_-24px_90px_rgba(0,195,255,0.06)]"
+        className="pointer-events-none absolute -bottom-[350px] left-1/2 z-[1] h-[470px] w-[1450px] -translate-x-1/2 rounded-[50%] border-t border-[#c5ae83]/15 shadow-[0_-24px_90px_rgba(184,155,103,0.06)]"
         style={{
           background:
-            'radial-gradient(ellipse at 50% 0%, rgba(0,195,255,0.07), rgba(0,68,255,0.025) 46%, transparent 72%)',
+            'radial-gradient(ellipse at 50% 0%, rgba(184,155,103,0.08), rgba(120,109,91,0.025) 46%, transparent 72%)',
         }}
       />
 

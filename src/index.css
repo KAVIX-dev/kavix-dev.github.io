@@ -9,7 +9,7 @@
 
 @theme {
   --font-sans: "Vazirmatn", system-ui, -apple-system, sans-serif;
-  --color-obsidian: #10141d;
+  --color-obsidian: #151514;
   --color-kavix-cyan: #00c3ff;
   --color-kavix-blue: #0044ff;
   --color-kavix-gold: #f6c453;
@@ -19,14 +19,14 @@
 @layer base {
   html {
     font-family: var(--font-sans);
-    background-color: #10141d;
+    background-color: #151514;
     color: #f8fafc;
     scroll-behavior: smooth;
   }
 
   body {
     overflow-x: hidden;
-    background-color: #10141d;
+    background-color: #151514;
   }
 
   /* Sleek dark custom scrollbar for Windows/Chrome/Edge/Firefox */
@@ -118,29 +118,22 @@
 
 /* Frosted surfaces: subtle contrast, with an opaque fallback. */
 .glass-panel {
-  background: #202833;
-  background: linear-gradient(145deg, rgba(58, 72, 87, .58), rgba(31, 40, 52, .67));
-  border: 1px solid rgba(210, 226, 240, .17);
+  background: #292a29;
+  background: linear-gradient(145deg, rgba(72, 72, 68, .55), rgba(39, 40, 39, .72));
+  border: 1px solid rgba(235, 227, 211, .15);
   box-shadow: 0 18px 50px rgba(0, 0, 0, .22), inset 0 1px 0 rgba(255,255,255,.09);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
 }
 
-/* Digital studio canvas: deep charcoal with broad, localized color fields. */
+/* Neutral charcoal canvas: brand blue belongs to the foreground. */
 .site-canvas {
-  background-color: #0b1018;
+  background-color: #151514;
   background-image:
-    radial-gradient(ellipse 90% 680px at 100% 10%, rgba(30, 120, 151, .32), transparent 69%),
-    radial-gradient(ellipse 75% 700px at 0% 31%, rgba(46, 88, 149, .28), transparent 70%),
-    radial-gradient(ellipse 85% 700px at 100% 59%, rgba(46, 115, 123, .23), transparent 72%),
-    radial-gradient(ellipse 80% 600px at 0% 86%, rgba(143, 108, 62, .15), transparent 70%),
-    linear-gradient(180deg, #101b27, #0c111a 38%, #101822 72%, #0b1018);
-}
-.studio-grid {
-  background-image: linear-gradient(rgba(178, 215, 229, .13) 1px, transparent 1px), linear-gradient(90deg, rgba(178, 215, 229, .13) 1px, transparent 1px);
-  background-size: 72px 72px;
-  mask-image: radial-gradient(ellipse at 75% 30%, black, transparent 68%);
-  -webkit-mask-image: radial-gradient(ellipse at 75% 30%, black, transparent 68%);
+    radial-gradient(ellipse 90% 700px at 100% 14%, rgba(145, 121, 89, .14), transparent 70%),
+    radial-gradient(ellipse 85% 800px at 0% 48%, rgba(112, 105, 95, .10), transparent 70%),
+    radial-gradient(ellipse 80% 650px at 100% 80%, rgba(151, 120, 77, .09), transparent 70%),
+    linear-gradient(180deg, #1a1917, #141515 38%, #1a1917 70%, #141414);
 }
 
 .process-card {

@@ -25,14 +25,14 @@ export default function AmbientBackground() {
           className="animate-aurora-a absolute -top-44 -right-28 h-[520px] w-[680px] rounded-full opacity-20 blur-[120px]"
           style={{
             background:
-              'radial-gradient(circle, rgba(72,116,161,0.65), rgba(69,147,165,0.18) 55%, transparent 72%)',
+              'radial-gradient(circle, rgba(154,128,91,0.46), rgba(133,115,90,0.12) 55%, transparent 72%)',
           }}
         />
         <div
           className="animate-aurora-b absolute top-28 -left-44 h-[460px] w-[560px] rounded-full opacity-15 blur-[120px]"
           style={{
             background:
-              'radial-gradient(circle, rgba(87,139,161,0.36), rgba(73,100,145,0.15) 58%, transparent 75%)',
+              'radial-gradient(circle, rgba(127,120,105,0.32), rgba(107,104,97,0.12) 58%, transparent 75%)',
           }}
         />
         <div
@@ -43,9 +43,6 @@ export default function AmbientBackground() {
           }}
         />
       </div>
-
-      {/* Faint drafting grid, contained behind content. */}
-      <div aria-hidden="true" className="studio-grid pointer-events-none fixed inset-0 z-0 opacity-50" />
 
       {/* Subtle film grain texture */}
       <div className="film-grain pointer-events-none fixed inset-0 z-[1] opacity-[0.025]" />
@@ -60,7 +57,7 @@ export default function AmbientBackground() {
           className="h-full w-full rounded-full"
           style={{
             background:
-              'radial-gradient(circle, rgba(0,195,255,0.055), rgba(246,196,83,0.03) 42%, transparent 70%)',
+              'radial-gradient(circle, rgba(246,196,83,0.045), rgba(193,175,147,0.02) 42%, transparent 70%)',
           }}
         />
       </motion.div>
