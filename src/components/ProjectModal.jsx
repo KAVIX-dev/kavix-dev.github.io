@@ -43,7 +43,7 @@ export default function ProjectModal({ project, onClose }) {
               <div className="mb-4 flex items-start justify-between gap-4">
                 <div>
                   <div className="mb-1 text-xs font-semibold text-[#00c3ff]">
-                    {project.category} • {project.year}
+                    {project.category}{project.year && ` • ${project.year}`}
                   </div>
                   <h3 className="text-xl font-extrabold text-slate-50 sm:text-2xl">
                     {project.title}
@@ -60,33 +60,28 @@ export default function ProjectModal({ project, onClose }) {
                 </button>
               </div>
 
-              {/* Preview Image */}
-              <div className="mb-4 max-h-[300px] overflow-hidden rounded-2xl border border-white/[0.08] bg-[#050811]">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="h-full max-h-[300px] w-full object-cover"
-                />
+              <p className="mb-4 text-[14px] leading-7 text-slate-300">{project.summary}</p>
+              <div className="mb-4 rounded-2xl border border-white/[0.07] bg-white/[0.025] p-4">
+                <h4 className="mb-2 text-sm font-bold text-[#f6c453]">نقش در پروژه</h4>
+                <p className="text-sm leading-7 text-slate-300">{project.role}</p>
               </div>
-
-              <p className="mb-4 text-[14px] leading-7 text-slate-300">
-                {project.summary}
-              </p>
-
-              {/* Case Study 3-column Breakdown */}
-              <div className="mb-5 grid grid-cols-1 gap-3 sm:grid-cols-3">
-                <div className="rounded-2xl border border-white/[0.07] bg-white/[0.025] p-3.5">
-                  <h4 className="mb-1 text-xs font-bold text-[#f6c453]">چالش پروژه</h4>
-                  <p className="text-xs leading-6 text-slate-300">{project.challenge}</p>
-                </div>
-                <div className="rounded-2xl border border-white/[0.07] bg-white/[0.025] p-3.5">
-                  <h4 className="mb-1 text-xs font-bold text-[#00c3ff]">راه‌حل اجرایی</h4>
-                  <p className="text-xs leading-6 text-slate-300">{project.solution}</p>
-                </div>
-                <div className="rounded-2xl border border-white/[0.07] bg-white/[0.025] p-3.5">
-                  <h4 className="mb-1 text-xs font-bold text-[#f6c453]">نتیجه کلیدی</h4>
-                  <p className="text-xs leading-6 text-slate-300">{project.result}</p>
-                </div>
+              <div className="mb-5">
+                <h4 className="mb-3 text-sm font-bold text-slate-100">امکانات پروژه</h4>
+                <ul className="grid grid-cols-1 gap-2 text-sm leading-6 text-slate-300 sm:grid-cols-2">
+                  {project.features.map((feature) => <li key={feature}>• {feature}</li>)}
+                </ul>
+              </div>
+              {project.note && <p className="mb-4 text-xs leading-6 text-slate-400">{project.note}</p>}
+              <h4 className="mb-3 text-sm font-bold text-slate-100">تصاویر پروژه</h4>
+              <div className="mb-5 grid grid-cols-1 gap-4 sm:grid-cols-2">
+                {project.gallery.map((image) => (
+                  <figure key={image.src} className="min-w-0">
+                    <div className="max-h-[300px] overflow-auto rounded-xl border border-white/[0.08] bg-[#050811]">
+                      <img src={image.src} alt={`${project.title} — ${image.label}`} loading="lazy" className="block h-auto w-full" />
+                    </div>
+                    <figcaption className="mt-2 text-xs text-slate-400">{image.label} <span className="text-slate-500">(برای مشاهده تصویر اسکرول کنید)</span></figcaption>
+                  </figure>
+                ))}
               </div>
 
               {/* Tech Tags */}

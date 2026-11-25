@@ -34,8 +34,7 @@ export default function ProjectsSection({ onSelectProject }) {
               <span className="font-light text-slate-400">اجرا شده</span>
             </h2>
             <p className="mt-3.5 max-w-[540px] text-[15px] leading-8 text-slate-400">
-              روی هر پروژه کلیک کنید تا جزئیات کامل (چالش، راه‌حل و دستاورد) و لینک نسخه
-              زنده آن را ببینید.
+              روی هر پروژه کلیک کنید تا جزئیات، تصاویر و در صورت دسترسی لینک نسخه زنده آن را ببینید.
             </p>
 
             {/* View Mode Toggle: Editorial Showcase (Sample #4) vs Interactive Hover List (Sample #1) */}
@@ -99,7 +98,7 @@ export default function ProjectsSection({ onSelectProject }) {
                         src={project.image}
                         alt={project.title}
                         loading="lazy"
-                        className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.045]"
+                        className="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.045]"
                       />
                       <span className="absolute bottom-4 left-4 flex h-10 w-10 items-center justify-center rounded-full bg-slate-50/95 text-[#03050a] shadow-lg transition-all duration-300 group-hover:rotate-90 group-hover:scale-105 group-hover:bg-[#f6c453]">
                         <Plus className="h-5 w-5" />
@@ -114,8 +113,9 @@ export default function ProjectsSection({ onSelectProject }) {
                     >
                       <div className="mb-3 flex items-center gap-2.5 text-xs font-semibold tracking-wide">
                         <span className="text-[#00c3ff]">{project.category}</span>
-                        <span className="text-slate-600">•</span>
-                        <span className="text-slate-400">{project.year}</span>
+                        {project.year && (
+                          <><span className="text-slate-600">•</span><span className="text-slate-400">{project.year}</span></>
+                        )}
                       </div>
 
                       <h3 className="mb-3.5 text-2xl font-extrabold tracking-tight text-slate-50">
