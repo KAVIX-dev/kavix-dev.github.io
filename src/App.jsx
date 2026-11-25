@@ -10,6 +10,7 @@ import ProcessArcSection from './components/ProcessArcSection'
 import FaqSection from './components/FaqSection'
 import ContactSection from './components/ContactSection'
 import Footer from './components/Footer'
+import { useEffect } from 'react'
 
 export default function App() {
   const [selectedProject, setSelectedProject] = useState(null)
@@ -21,7 +22,7 @@ export default function App() {
       setToastMsg((prev) => (prev === msg ? '' : prev))
     }, 2400)
   }
-  
+
   useEffect(() => {
   const tg = window.Telegram?.WebApp
   if (tg) {
