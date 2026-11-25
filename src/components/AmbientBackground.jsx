@@ -25,14 +25,14 @@ export default function AmbientBackground() {
           className="animate-aurora-a absolute -top-44 -right-28 h-[520px] w-[680px] rounded-full opacity-20 blur-[120px]"
           style={{
             background:
-              'radial-gradient(circle, rgba(0,68,255,0.72), rgba(0,195,255,0.24) 55%, transparent 72%)',
+              'radial-gradient(circle, rgba(72,116,161,0.65), rgba(69,147,165,0.18) 55%, transparent 72%)',
           }}
         />
         <div
           className="animate-aurora-b absolute top-28 -left-44 h-[460px] w-[560px] rounded-full opacity-15 blur-[120px]"
           style={{
             background:
-              'radial-gradient(circle, rgba(0,195,255,0.45), rgba(0,68,255,0.18) 58%, transparent 75%)',
+              'radial-gradient(circle, rgba(87,139,161,0.36), rgba(73,100,145,0.15) 58%, transparent 75%)',
           }}
         />
         <div
@@ -43,21 +43,6 @@ export default function AmbientBackground() {
           }}
         />
       </div>
-
-      {/* Large, quiet contour lines give the canvas a recognizable visual rhythm. */}
-      <svg aria-hidden="true" className="pointer-events-none fixed inset-0 z-0 h-full w-full opacity-50" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid slice" fill="none">
-        <defs>
-          <linearGradient id="ambient-lines" x1="0" y1="0" x2="1" y2="1">
-            <stop stopColor="#66c8dc" stopOpacity=".34" />
-            <stop offset=".55" stopColor="#698bad" stopOpacity=".06" />
-            <stop offset="1" stopColor="#e4bd79" stopOpacity=".22" />
-          </linearGradient>
-        </defs>
-        <path d="M-340 170 C-100 -100 200 -40 350 160 S 730 405 1180 130" stroke="url(#ambient-lines)" strokeWidth="1.5" />
-        <path d="M-340 195 C-100 -75 200 -15 350 185 S 730 430 1180 155" stroke="url(#ambient-lines)" strokeWidth="1" />
-        <path d="M-300 790 C 40 550 230 1050 540 820 S 900 560 1250 790" stroke="url(#ambient-lines)" strokeWidth="1.5" />
-        <path d="M-300 815 C 40 575 230 1075 540 845 S 900 585 1250 815" stroke="url(#ambient-lines)" strokeWidth="1" />
-      </svg>
 
       {/* Subtle film grain texture */}
       <div className="film-grain pointer-events-none fixed inset-0 z-[1] opacity-[0.025]" />
