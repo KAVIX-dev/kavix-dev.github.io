@@ -23,7 +23,7 @@ export default function App() {
   }
 
   return (
-    <div className="relative min-h-screen bg-[#0b1220] text-slate-50">
+    <div className="site-canvas relative min-h-screen text-slate-50">
       <AmbientBackground />
       <Navbar />
 

@@ -35,25 +35,9 @@ export default function ProcessArcSection() {
 
         {/* Curved Dotted Arc Stage */}
         <div className="relative pt-4 pb-6">
-          <svg
-            aria-hidden="true"
-            viewBox="0 0 1000 84"
-            fill="none"
-            preserveAspectRatio="none"
-            className="pointer-events-none absolute top-9 left-[12.5%] hidden h-16 w-[75%]"
-          >
-            <path
-              d="M 0 12 Q 500 84 1000 12"
-              stroke="rgba(0, 195, 255, 0.30)"
-              strokeWidth="1.5"
-              strokeDasharray="5 7"
-            />
-          </svg>
-
-          <div className="relative z-10 grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-4">
+          <div className="relative z-10 grid grid-cols-1 gap-4 lg:grid-cols-4">
             {processSteps.map((item, idx) => {
               const Icon = iconMap[item.icon] || Search
-              const isMiddle = idx === 1 || idx === 2
               return (
                 <motion.div
                   key={item.step}
@@ -61,11 +45,11 @@ export default function ProcessArcSection() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.2 }}
                   transition={{ duration: 0.7, delay: idx * 0.1, ease }}
-                  className={`glass-panel group flex items-start gap-4 rounded-2xl p-4 text-right sm:flex-col sm:items-center sm:p-5 sm:text-center ${
-                    isMiddle ? 'lg:translate-y-6' : ''
+                  className={`process-card glass-panel group relative flex items-start gap-4 rounded-2xl p-4 text-right lg:flex-col lg:items-center lg:p-5 lg:text-center ${
+                    idx < processSteps.length - 1 ? 'process-connector' : ''
                   }`}
                 >
-                  <div className="relative mb-0 flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-[#83cfdf]/25 bg-[#172e41] text-[#a2deeb] sm:mb-4 sm:h-14 sm:w-14 sm:rounded-full transition-all duration-300 group-hover:scale-110 group-hover:border-[#f6c453] group-hover:text-[#f6c453] group-hover:shadow-[0_0_34px_rgba(246,196,83,0.28)]">
+                  <div className="relative mb-0 flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-[#83cfdf]/25 bg-[#172e41] text-[#a2deeb] lg:mb-4 lg:h-14 lg:w-14 lg:rounded-full transition-all duration-300 group-hover:scale-110 group-hover:border-[#f6c453] group-hover:text-[#f6c453] group-hover:shadow-[0_0_34px_rgba(246,196,83,0.28)]">
                     <Icon className="h-5 w-5" />
                   </div>
 
