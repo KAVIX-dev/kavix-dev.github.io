@@ -10,7 +10,6 @@ import ProcessArcSection from './components/ProcessArcSection'
 import FaqSection from './components/FaqSection'
 import ContactSection from './components/ContactSection'
 import Footer from './components/Footer'
-import { useEffect } from 'react'
 
 export default function App() {
   const [selectedProject, setSelectedProject] = useState(null)
@@ -23,18 +22,8 @@ export default function App() {
     }, 2400)
   }
 
-  useEffect(() => {
-  const tg = window.Telegram?.WebApp
-  if (tg) {
-    tg.ready()
-    tg.expand()
-    tg.setHeaderColor('#03050a')
-    tg.setBackgroundColor('#03050a')
-  }
-}, [])
-
   return (
-    <div className="relative min-h-screen bg-[#03050a] text-slate-50">
+    <div className="relative min-h-screen bg-[#0b1220] text-slate-50">
       <AmbientBackground />
       <Navbar />
 

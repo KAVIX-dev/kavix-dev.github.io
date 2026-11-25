@@ -13,7 +13,7 @@ export default function ProjectsSection({ onSelectProject }) {
     projects.find((p) => p.id === hoveredId) || projects[0]
 
   return (
-    <section id="work" className="relative z-10 py-24 sm:py-28">
+    <section id="work" className="relative z-10 py-16 sm:py-24">
       <div className="mx-auto max-w-[1120px] px-6">
         {/* Editorial 2-column Section Header (Samples #2 & #4) */}
         <motion.div
@@ -21,7 +21,7 @@ export default function ProjectsSection({ onSelectProject }) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.75, ease }}
-          className="mb-16 grid grid-cols-1 items-start gap-6 lg:grid-cols-[170px_1fr]"
+          className="mb-9 grid grid-cols-1 items-start gap-4 sm:mb-14 lg:grid-cols-[170px_1fr]"
         >
           <div className="flex items-center gap-2.5 pt-2.5 text-xs tracking-wider text-slate-400">
             <span className="h-px w-5 bg-[#00c3ff]" />
@@ -74,7 +74,7 @@ export default function ProjectsSection({ onSelectProject }) {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -12 }}
               transition={{ duration: 0.45, ease }}
-              className="flex flex-col gap-16 sm:gap-20"
+              className="flex flex-col gap-6 sm:gap-8 lg:gap-8"
             >
               {projects.map((project, idx) => {
                 const isReversed = idx % 2 === 1
@@ -85,12 +85,12 @@ export default function ProjectsSection({ onSelectProject }) {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.18 }}
                     transition={{ duration: 0.75, ease }}
-                    className="grid grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-12"
+                    className="glass-panel grid grid-cols-1 items-center gap-5 overflow-hidden rounded-[26px] p-3 sm:p-5 lg:grid-cols-12 lg:gap-10 lg:p-6"
                   >
                     {/* Visual Media */}
                     <div
                       onClick={() => onSelectProject(project)}
-                      className={`group relative aspect-[16/10] cursor-pointer overflow-hidden rounded-[22px] border border-white/[0.08] bg-[#080c15] transition-all duration-500 hover:-translate-y-1.5 hover:border-[#00c3ff]/40 hover:shadow-[0_30px_60px_-24px_rgba(0,195,255,0.28)] lg:col-span-7 ${
+                      className={`group relative aspect-[16/10] cursor-pointer overflow-hidden rounded-[22px] border border-white/[0.08] bg-[#080c15] transition-all duration-500 hover:-translate-y-1.5 hover:border-[#00c3ff]/40 hover:shadow-[0_20px_45px_-24px_rgba(0,195,255,0.16)] lg:col-span-7 ${
                         isReversed ? 'lg:order-2' : 'lg:order-1'
                       }`}
                     >
@@ -107,12 +107,12 @@ export default function ProjectsSection({ onSelectProject }) {
 
                     {/* Editorial Copy */}
                     <div
-                      className={`lg:col-span-5 ${
+                      className={`px-2 pb-3 sm:px-3 lg:col-span-5 lg:px-0 lg:pb-0 ${
                         isReversed ? 'lg:order-1' : 'lg:order-2'
                       }`}
                     >
                       <div className="mb-3 flex items-center gap-2.5 text-xs font-semibold tracking-wide">
-                        <span className="text-[#00c3ff]">{project.category}</span>
+                        <span className="text-[#91d8e9]">{project.category}</span>
                         {project.year && (
                           <><span className="text-slate-600">•</span><span className="text-slate-400">{project.year}</span></>
                         )}
@@ -122,7 +122,7 @@ export default function ProjectsSection({ onSelectProject }) {
                         {project.title}
                       </h3>
 
-                      <p className="mb-6 text-[14.5px] leading-8 text-slate-400">
+                      <p className="mb-6 text-[14.5px] leading-8 text-slate-300">
                         {project.summary}
                       </p>
 

@@ -9,14 +9,14 @@ export default function CapabilitiesSection() {
   const [openIndex, setOpenIndex] = useState(0)
 
   return (
-    <section id="capabilities" className="relative z-10 py-24 sm:py-28">
+    <section id="capabilities" className="relative z-10 py-16 sm:py-24">
       <div className="mx-auto max-w-[1120px] px-6">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.75, ease }}
-          className="mb-14 grid grid-cols-1 items-start gap-6 lg:grid-cols-[170px_1fr]"
+          className="mb-9 grid grid-cols-1 items-start gap-4 sm:mb-14 lg:grid-cols-[170px_1fr]"
         >
           <div className="flex items-center gap-2.5 pt-2.5 text-xs tracking-wider text-slate-400">
             <span className="h-px w-5 bg-[#00c3ff]" />
@@ -41,7 +41,7 @@ export default function CapabilitiesSection() {
             ✳
           </div>
 
-          <div className="border-t border-white/[0.08]">
+          <div className="glass-panel rounded-[26px] px-5 sm:px-8">
             {capabilities.map((cap, idx) => {
               const isOpen = openIndex === idx
               return (
@@ -90,7 +90,7 @@ export default function CapabilitiesSection() {
                         className="overflow-hidden"
                       >
                         <div className="pr-8 pb-7 sm:pr-9">
-                          <p className="max-w-[700px] text-[14.5px] leading-8 text-slate-400">
+                          <p className="max-w-[700px] text-[14.5px] leading-8 text-slate-300">
                             {cap.description}
                           </p>
 

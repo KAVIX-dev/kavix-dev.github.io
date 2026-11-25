@@ -1,4 +1,3 @@
-import { openTelegramInMiniApp } from '../telegram'
 import { useRef } from 'react'
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
 import { ArrowDown, CheckCircle2, Gauge, Lock, Send, Smartphone, Terminal } from 'lucide-react'
@@ -35,14 +34,14 @@ export default function Hero() {
   }
 
   return (
-    <header className="relative flex min-h-screen flex-col justify-center overflow-hidden pt-32 pb-24">
+    <header className="relative flex min-h-[85vh] flex-col justify-center overflow-hidden pt-28 pb-16 sm:pt-32 sm:pb-24">
       {/* Luminous horizon arc at bottom */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -bottom-[350px] left-1/2 z-[1] h-[470px] w-[1450px] -translate-x-1/2 rounded-[50%] border-t border-[#00c3ff]/35 shadow-[0_-24px_90px_rgba(0,195,255,0.16)]"
+        className="pointer-events-none absolute -bottom-[350px] left-1/2 z-[1] h-[470px] w-[1450px] -translate-x-1/2 rounded-[50%] border-t border-[#8ab4ce]/15 shadow-[0_-24px_90px_rgba(0,195,255,0.06)]"
         style={{
           background:
-            'radial-gradient(ellipse at 50% 0%, rgba(0,195,255,0.20), rgba(0,68,255,0.06) 46%, transparent 72%)',
+            'radial-gradient(ellipse at 50% 0%, rgba(0,195,255,0.07), rgba(0,68,255,0.025) 46%, transparent 72%)',
         }}
       />
 
@@ -53,7 +52,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65, ease }}
-            className="mb-6 inline-flex items-center gap-2.5 text-xs font-semibold tracking-wide text-slate-300"
+            className="glass-panel mb-6 inline-flex items-center gap-2.5 rounded-full px-4 py-2 text-xs font-semibold tracking-wide text-slate-200"
           >
             <span className="h-2 w-2 animate-pulse rounded-full bg-[#f6c453] shadow-[0_0_12px_#f6c453]" />
             <span>استودیو طراحی و توسعه وب {profile.brand}</span>
@@ -76,7 +75,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.16, ease }}
-            className="mb-9 max-w-[520px] text-[15px] leading-8 text-slate-400 sm:text-base"
+            className="mb-9 max-w-[520px] text-[15px] leading-8 text-slate-300 sm:text-base"
           >
             {profile.tagline}
           </motion.p>
@@ -85,7 +84,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.75, delay: 0.24, ease }}
-            className="mb-12 flex flex-wrap items-center gap-3.5"
+            className="mb-8 flex flex-wrap items-center gap-3"
           >
             <a
               href="#work"
@@ -118,7 +117,7 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.9, delay: 0.36 }}
-            className="flex flex-wrap gap-x-10 gap-y-5 border-t border-white/[0.08] pt-6"
+            className="glass-panel grid grid-cols-3 gap-3 rounded-2xl p-4 sm:gap-6 sm:p-5"
           >
             {heroMetrics.map((m) => (
               <div key={m.label}>
@@ -131,13 +130,13 @@ export default function Hero() {
                     <span className="text-kavix-gold-gradient ml-0.5">{m.suffix}</span>
                   )}
                 </div>
-                <div className="mt-1 text-xs text-slate-400">{m.label}</div>
+                <div className="mt-1 text-[11px] leading-5 text-slate-300 sm:text-xs">{m.label}</div>
               </div>
             ))}
           </motion.div>
         </div>
 
-        {/* Left 3D Interactive Web Browser & Studio Showcase */}
+        {/* Left 3D Interactive Web Browser & Studio Showcase (Inspired by Samples #4 & #5) */}
         <motion.div
           initial={{ opacity: 0, scale: 0.93, y: 16 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -169,17 +168,20 @@ export default function Hero() {
                 dir="ltr"
                 className="flex items-center justify-between border-b border-white/[0.07] bg-[#0a1020]/90 px-4 py-3"
               >
+                {/* Window traffic dots */}
                 <div className="flex items-center gap-1.5">
                   <span className="h-2.5 w-2.5 rounded-full bg-white/15 transition-colors group-hover:bg-rose-400/70" />
                   <span className="h-2.5 w-2.5 rounded-full bg-white/15 transition-colors group-hover:bg-[#f6c453]/80" />
                   <span className="h-2.5 w-2.5 rounded-full bg-white/15 transition-colors group-hover:bg-emerald-400/75" />
                 </div>
 
+                {/* Address bar */}
                 <div className="flex items-center gap-1.5 rounded-full border border-white/[0.07] bg-[#040710]/90 px-3.5 py-1 text-[11px] text-slate-400">
                   <Lock className="h-2.5 w-2.5 text-[#00c3ff]" />
                   <span className="tracking-wide text-slate-300">kavix-dev.github.io</span>
                 </div>
 
+                {/* Live indicator */}
                 <div className="flex items-center gap-1.5 text-[10px] font-medium text-emerald-400">
                   <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-400 shadow-[0_0_8px_#34d399]" />
                   <span>LIVE</span>
@@ -188,6 +190,7 @@ export default function Hero() {
 
               {/* Browser Canvas Body */}
               <div className="relative px-5 pt-6 pb-5">
+                {/* Subtle studio dot-grid background inside browser */}
                 <div
                   aria-hidden="true"
                   className="pointer-events-none absolute inset-0 opacity-[0.16]"
@@ -199,21 +202,23 @@ export default function Hero() {
                 />
 
                 {/* Split Showcase inside Browser: Logo Stage + Mini UI/Code Preview */}
-                <div className="relative z-10 grid grid-cols-12 items-center gap-4">
+                <div className="relative z-10 grid grid-cols-1 items-center gap-4 sm:grid-cols-12">
+                  {/* KAVIX Logo Focal Stage */}
                   <div
                     style={{ transform: 'translateZ(30px)' }}
-                    className="col-span-5 flex flex-col items-center justify-center rounded-2xl border border-white/[0.08] bg-[#050914]/90 p-4 shadow-inner"
+                    className="flex flex-col items-center justify-center rounded-2xl border border-white/[0.08] bg-[#050914]/90 p-4 shadow-inner sm:col-span-5"
                   >
                     <img
                       src="/logo.svg"
                       alt="لوگوی KAVIX"
-                      className="h-28 w-28 object-contain drop-shadow-[0_10px_24px_rgba(0,195,255,0.28)] transition-transform duration-500 group-hover:scale-105 sm:h-32 sm:w-32"
+                      className="h-24 w-24 object-contain drop-shadow-[0_10px_24px_rgba(0,195,255,0.28)] transition-transform duration-500 group-hover:scale-105 sm:h-32 sm:w-32"
                     />
                   </div>
 
+                  {/* Mini Live Code / Component Preview */}
                   <div
                     dir="ltr"
-                    className="col-span-7 flex flex-col gap-2.5 text-left font-mono text-[11px]"
+                    className="flex flex-col gap-2.5 text-left font-mono text-[11px] sm:col-span-7"
                   >
                     <div className="rounded-xl border border-white/[0.07] bg-[#050914]/90 p-3 leading-5">
                       <div className="mb-1.5 flex items-center justify-between text-[10px] text-slate-500">
@@ -237,6 +242,7 @@ export default function Hero() {
                       <div className="text-slate-400">{'})'}</div>
                     </div>
 
+                    {/* Mini UI skeleton bars */}
                     <div className="grid grid-cols-3 gap-2">
                       <div className="rounded-lg border border-white/[0.06] bg-white/[0.03] p-2">
                         <div className="h-1.5 w-8 rounded-full bg-[#00c3ff]/70" />
@@ -275,7 +281,7 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Floating 3D Depth Pill #1 — Top Right */}
+            {/* Floating 3D Depth Pill #1 — Top Right (Parallax over browser) */}
             <div
               style={{ transform: 'translateZ(48px)' }}
               className="pointer-events-none absolute -top-4 -right-3 hidden items-center gap-2 rounded-2xl border border-[#00c3ff]/30 bg-[#081022]/90 px-3.5 py-2 shadow-[0_14px_30px_rgba(0,0,0,0.6)] backdrop-blur-xl sm:flex"
@@ -291,7 +297,7 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Floating 3D Depth Pill #2 — Bottom Left */}
+            {/* Floating 3D Depth Pill #2 — Bottom Left (Parallax over browser) */}
             <div
               style={{ transform: 'translateZ(52px)' }}
               className="pointer-events-none absolute -bottom-4 -left-3 hidden items-center gap-2 rounded-2xl border border-[#f6c453]/30 bg-[#081022]/90 px-3.5 py-2 shadow-[0_14px_30px_rgba(0,0,0,0.6)] backdrop-blur-xl sm:flex"

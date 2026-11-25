@@ -1,4 +1,3 @@
-import { openTelegramInMiniApp } from '../telegram'
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { ArrowUpLeft, Check, Copy, Mail, Phone, Send } from 'lucide-react'
@@ -24,9 +23,7 @@ export default function ContactSection({ onToast }) {
 
   const handleTelegramSubmit = (e) => {
     e.preventDefault()
-
     const url = `${profile.telegramUrl}?text=${encodeURIComponent(buildBriefText())}`
-
     if (!openTelegramInMiniApp(url)) {
       window.open(url, '_blank', 'noopener,noreferrer')
     }
@@ -64,7 +61,7 @@ export default function ContactSection({ onToast }) {
               <span className="font-light text-slate-400">با اطمینان شروع کنید.</span>
             </h2>
 
-            <p className="mt-4 text-[14.5px] leading-8 text-slate-400">
+            <p className="mt-4 text-[14.5px] leading-8 text-slate-300">
               در چند خط کوتاه نیازها و اهداف کسب‌وکار خود را با ما در میان بگذارید تا در
               کوتاه‌ترین زمان، مشاوره تخصصی و برآورد شفاف پروژه را برایتان آماده کنیم.
             </p>
@@ -150,7 +147,7 @@ export default function ContactSection({ onToast }) {
           {/* Minimalist Project Brief Form (Telegram + Email fallback) */}
           <form
             onSubmit={handleTelegramSubmit}
-            className="rounded-[26px] border border-white/[0.08] bg-[#090d16]/85 p-7 shadow-2xl backdrop-blur-md sm:p-9 lg:col-span-7"
+            className="glass-panel rounded-[26px] p-6 sm:p-9 lg:col-span-7"
           >
             <div className="mb-6">
               <label className="mb-2 block text-xs text-slate-400">نام و نام خانوادگی</label>
