@@ -9,7 +9,7 @@
 
 @theme {
   --font-sans: "Vazirmatn", system-ui, -apple-system, sans-serif;
-  --color-obsidian: #03050a;
+  --color-obsidian: #090e18;
   --color-kavix-cyan: #00c3ff;
   --color-kavix-blue: #0044ff;
   --color-kavix-gold: #f6c453;
@@ -19,14 +19,14 @@
 @layer base {
   html {
     font-family: var(--font-sans);
-    background-color: #03050a;
+    background-color: #090e18;
     color: #f8fafc;
     scroll-behavior: smooth;
   }
 
   body {
     overflow-x: hidden;
-    background-color: #03050a;
+    background-color: #090e18;
   }
 
   /* Sleek dark custom scrollbar for Windows/Chrome/Edge/Firefox */
@@ -109,4 +109,9 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .animate-aurora-a, .animate-aurora-b { animation: none; }
 }
