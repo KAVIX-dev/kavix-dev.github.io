@@ -44,6 +44,9 @@ export default function AmbientBackground() {
         />
       </div>
 
+      {/* Faint drafting grid, contained behind content. */}
+      <div aria-hidden="true" className="studio-grid pointer-events-none fixed inset-0 z-0 opacity-50" />
+
       {/* Subtle film grain texture */}
       <div className="film-grain pointer-events-none fixed inset-0 z-[1] opacity-[0.025]" />
 

@@ -126,14 +126,21 @@
   -webkit-backdrop-filter: blur(20px);
 }
 
-/* Charcoal canvas with broad, restrained pools of light. */
+/* Digital studio canvas: deep charcoal with broad, localized color fields. */
 .site-canvas {
-  background-color: #10141d;
+  background-color: #0b1018;
   background-image:
-    radial-gradient(ellipse 85% 520px at 8% 17%, rgba(75, 122, 146, .18), transparent 75%),
-    radial-gradient(ellipse 85% 650px at 96% 46%, rgba(85, 101, 139, .16), transparent 75%),
-    radial-gradient(ellipse 80% 560px at 12% 78%, rgba(100, 108, 112, .12), transparent 75%),
-    linear-gradient(180deg, #111b27 0%, #10141d 32%, #151b26 65%, #10141d 100%);
+    radial-gradient(ellipse 90% 680px at 100% 10%, rgba(30, 120, 151, .32), transparent 69%),
+    radial-gradient(ellipse 75% 700px at 0% 31%, rgba(46, 88, 149, .28), transparent 70%),
+    radial-gradient(ellipse 85% 700px at 100% 59%, rgba(46, 115, 123, .23), transparent 72%),
+    radial-gradient(ellipse 80% 600px at 0% 86%, rgba(143, 108, 62, .15), transparent 70%),
+    linear-gradient(180deg, #101b27, #0c111a 38%, #101822 72%, #0b1018);
+}
+.studio-grid {
+  background-image: linear-gradient(rgba(178, 215, 229, .13) 1px, transparent 1px), linear-gradient(90deg, rgba(178, 215, 229, .13) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(ellipse at 75% 30%, black, transparent 68%);
+  -webkit-mask-image: radial-gradient(ellipse at 75% 30%, black, transparent 68%);
 }
 
 .process-card {
