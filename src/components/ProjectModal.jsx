@@ -1,12 +1,20 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowUpLeft, Send, X } from 'lucide-react'
 import { profile } from '../data/portfolio'
 
 export default function ProjectModal({ project, onClose }) {
+  const [selectedImage, setSelectedImage] = useState(null)
+  const closeProject = () => {
+    setSelectedImage(null)
+    onClose()
+  }
   useEffect(() => {
     const handleKey = (e) => {
-      if (e.key === 'Escape') onClose()
+      if (e.key === 'Escape') {
+        if (selectedImage) setSelectedImage(null)
+        else onClose()
+      }
     }
     if (project) {
       document.body.style.overflow = 'hidden'
@@ -16,7 +24,7 @@ export default function ProjectModal({ project, onClose }) {
       document.body.style.overflow = ''
       window.removeEventListener('keydown', handleKey)
     }
-  }, [project, onClose])
+  }, [project, onClose, selectedImage])
 
   return (
     <AnimatePresence>
@@ -26,7 +34,7 @@ export default function ProjectModal({ project, onClose }) {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.22 }}
-          onClick={onClose}
+          onClick={closeProject}
           className="fixed inset-0 z-[100] flex items-center justify-center bg-[#02040a]/85 p-4 backdrop-blur-md"
         >
           <motion.div
@@ -52,7 +60,7 @@ export default function ProjectModal({ project, onClose }) {
 
                 <button
                   type="button"
-                  onClick={onClose}
+                  onClick={closeProject}
                   className="flex h-9 w-9 shrink-0 cursor-pointer items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-slate-200 transition-colors hover:border-[#f6c453] hover:text-[#f6c453]"
                   aria-label="بستن"
                 >
@@ -76,10 +84,15 @@ export default function ProjectModal({ project, onClose }) {
               <div className="mb-5 grid grid-cols-1 gap-4 sm:grid-cols-2">
                 {project.gallery.map((image) => (
                   <figure key={image.src} className="min-w-0">
-                    <div className="max-h-[300px] overflow-auto rounded-xl border border-white/[0.08] bg-[#050811]">
-                      <img src={image.src} alt={`${project.title} — ${image.label}`} loading="lazy" className="block h-auto w-full" />
-                    </div>
-                    <figcaption className="mt-2 text-xs text-slate-400">{image.label} <span className="text-slate-500">(برای مشاهده تصویر اسکرول کنید)</span></figcaption>
+                    <button
+                      type="button"
+                      onClick={() => setSelectedImage(image)}
+                      aria-label={`نمایش تمام‌صفحه ${image.label}`}
+                      className="block h-[220px] w-full cursor-zoom-in overflow-hidden rounded-xl border border-white/[0.08] bg-[#050811] focus-visible:outline-2 focus-visible:outline-[#00c3ff]"
+                    >
+                      <img src={image.src} alt={`${project.title} — ${image.label}`} loading="lazy" className="block h-full w-full object-cover object-top" />
+                    </button>
+                    <figcaption className="mt-2 text-xs text-slate-400">{image.label} <span className="text-slate-500">(برای نمایش بزرگ‌تر کلیک کنید)</span></figcaption>
                   </figure>
                 ))}
               </div>
@@ -112,7 +125,7 @@ export default function ProjectModal({ project, onClose }) {
                 ) : (
                   <button
                     type="button"
-                    onClick={onClose}
+                    onClick={closeProject}
                     className="inline-flex flex-1 cursor-pointer items-center justify-center gap-2 rounded-full border border-white/15 bg-white/[0.04] px-6 py-3 text-sm font-semibold text-slate-200 transition-colors hover:bg-white/[0.08]"
                   >
                     بستن پیش‌نمایش
@@ -133,6 +146,25 @@ export default function ProjectModal({ project, onClose }) {
               </div>
             </div>
           </motion.div>
+          {selectedImage && (
+            <div
+              role="dialog"
+              aria-modal="true"
+              aria-label={`نمایش تصویر ${selectedImage.label}`}
+              onClick={(e) => e.stopPropagation()}
+              className="fixed inset-0 z-[110] flex flex-col bg-[#02040a]/98"
+            >
+              <div className="flex shrink-0 items-center justify-between gap-4 border-b border-white/10 px-4 py-3 sm:px-6">
+                <span className="text-sm text-slate-200">{selectedImage.label} — {project.title}</span>
+                <button type="button" onClick={() => setSelectedImage(null)} aria-label="بستن تصویر" className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/15 text-white hover:bg-white/10">
+                  <X className="h-5 w-5" />
+                </button>
+              </div>
+              <div className="min-h-0 flex-1 overflow-auto p-3 sm:p-6">
+                <img src={selectedImage.src} alt={`${project.title} — ${selectedImage.label}`} className="mx-auto block h-auto w-full max-w-[1200px]" />
+              </div>
+            </div>
+          )}
         </motion.div>
       )}
     </AnimatePresence>
