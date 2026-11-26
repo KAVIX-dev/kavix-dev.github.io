@@ -90,7 +90,7 @@ export default function ProjectsSection({ onSelectProject }) {
                     {/* Visual Media */}
                     <div
                       onClick={() => onSelectProject(project)}
-                      className={`group relative aspect-[16/10] cursor-pointer overflow-hidden rounded-[22px] border border-white/[0.08] bg-[#080c15] transition-all duration-500 hover:-translate-y-1.5 hover:border-[#00c3ff]/40 hover:shadow-[0_20px_45px_-24px_rgba(0,195,255,0.16)] lg:col-span-7 ${
+                      className={`group relative aspect-[16/10] cursor-pointer overflow-hidden rounded-[22px] border border-[#83bfff]/20 bg-[#080c15] shadow-[0_0_24px_rgba(0,130,255,0.08)] transition-all duration-500 hover:-translate-y-1.5 hover:border-[#00c3ff]/40 hover:shadow-[0_20px_45px_-24px_rgba(0,195,255,0.16)] lg:col-span-7 ${
                         isReversed ? 'lg:order-2' : 'lg:order-1'
                       }`}
                     >

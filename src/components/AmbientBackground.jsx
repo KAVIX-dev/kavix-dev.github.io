@@ -25,14 +25,14 @@ export default function AmbientBackground() {
           className="animate-aurora-a absolute -top-44 -right-28 h-[520px] w-[680px] rounded-full opacity-20 blur-[120px]"
           style={{
             background:
-              'radial-gradient(circle, rgba(154,128,91,0.46), rgba(133,115,90,0.12) 55%, transparent 72%)',
+              'radial-gradient(circle, rgba(0,100,255,0.65), rgba(0,195,255,0.22) 55%, transparent 72%)',
           }}
         />
         <div
           className="animate-aurora-b absolute top-28 -left-44 h-[460px] w-[560px] rounded-full opacity-15 blur-[120px]"
           style={{
             background:
-              'radial-gradient(circle, rgba(127,120,105,0.32), rgba(107,104,97,0.12) 58%, transparent 75%)',
+              'radial-gradient(circle, rgba(0,195,255,0.38), rgba(25,72,205,0.16) 58%, transparent 75%)',
           }}
         />
         <div
@@ -57,7 +57,7 @@ export default function AmbientBackground() {
           className="h-full w-full rounded-full"
           style={{
             background:
-              'radial-gradient(circle, rgba(246,196,83,0.045), rgba(193,175,147,0.02) 42%, transparent 70%)',
+              'radial-gradient(circle, rgba(0,195,255,0.055), rgba(246,196,83,0.025) 42%, transparent 70%)',
           }}
         />
       </motion.div>

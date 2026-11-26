@@ -9,7 +9,7 @@
 
 @theme {
   --font-sans: "Vazirmatn", system-ui, -apple-system, sans-serif;
-  --color-obsidian: #151514;
+  --color-obsidian: #060a14;
   --color-kavix-cyan: #00c3ff;
   --color-kavix-blue: #0044ff;
   --color-kavix-gold: #f6c453;
@@ -19,14 +19,14 @@
 @layer base {
   html {
     font-family: var(--font-sans);
-    background-color: #151514;
+    background-color: #060a14;
     color: #f8fafc;
     scroll-behavior: smooth;
   }
 
   body {
     overflow-x: hidden;
-    background-color: #151514;
+    background-color: #060a14;
   }
 
   /* Sleek dark custom scrollbar for Windows/Chrome/Edge/Firefox */
@@ -116,24 +116,23 @@
   .animate-aurora-a, .animate-aurora-b { animation: none; }
 }
 
-/* Frosted surfaces: subtle contrast, with an opaque fallback. */
+/* Deep, blue-edged glass inspired by luminous studio interfaces. */
 .glass-panel {
-  background: #292a29;
-  background: linear-gradient(145deg, rgba(72, 72, 68, .55), rgba(39, 40, 39, .72));
-  border: 1px solid rgba(235, 227, 211, .15);
-  box-shadow: 0 18px 50px rgba(0, 0, 0, .22), inset 0 1px 0 rgba(255,255,255,.09);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: #101a2c;
+  background: linear-gradient(145deg, rgba(34, 53, 82, .78) 0%, rgba(13, 23, 42, .84) 55%, rgba(16, 25, 42, .88) 100%);
+  border: 1px solid rgba(119, 169, 219, .26);
+  box-shadow: inset 0 1px 0 rgba(213, 237, 255, .16), inset 0 0 24px rgba(74, 151, 228, .035), 0 16px 45px rgba(0, 0, 0, .34), 0 0 22px rgba(21, 99, 191, .09);
+  backdrop-filter: blur(22px) saturate(125%);
+  -webkit-backdrop-filter: blur(22px) saturate(125%);
 }
-
-/* Neutral charcoal canvas: brand blue belongs to the foreground. */
 .site-canvas {
-  background-color: #151514;
+  background-color: #060a14;
   background-image:
-    radial-gradient(ellipse 90% 700px at 100% 14%, rgba(145, 121, 89, .14), transparent 70%),
-    radial-gradient(ellipse 85% 800px at 0% 48%, rgba(112, 105, 95, .10), transparent 70%),
-    radial-gradient(ellipse 80% 650px at 100% 80%, rgba(151, 120, 77, .09), transparent 70%),
-    linear-gradient(180deg, #1a1917, #141515 38%, #1a1917 70%, #141414);
+    radial-gradient(ellipse 90% 650px at 92% 10%, rgba(10, 84, 160, .30), transparent 70%),
+    radial-gradient(ellipse 80% 700px at 2% 35%, rgba(24, 61, 132, .28), transparent 72%),
+    radial-gradient(ellipse 85% 650px at 95% 66%, rgba(0, 119, 165, .15), transparent 74%),
+    radial-gradient(ellipse 80% 620px at 8% 88%, rgba(149, 101, 24, .10), transparent 70%),
+    linear-gradient(180deg, #07101f, #060a14 38%, #08101e 72%, #060a14);
 }
 
 .process-card {
@@ -143,7 +142,7 @@
   .process-card:hover {
     translate: 0 -5px;
     border-color: rgba(246, 196, 83, .75);
-    background: linear-gradient(145deg, rgba(69, 77, 83, .85), rgba(37, 43, 51, .90));
+    background: linear-gradient(145deg, rgba(40, 60, 82, .92), rgba(14, 26, 45, .95));
     box-shadow: 0 0 0 1px rgba(246,196,83,.16), 0 22px 45px rgba(0,0,0,.25), 0 0 25px rgba(246,196,83,.10), inset 0 1px 0 rgba(255,255,255,.1);
   }
 }
